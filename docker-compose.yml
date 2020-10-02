@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  puppeteer:
+    container_name: app
+    build: ./app
+    init: true
+    security_opt: 
+      - seccomp=./app/chrome.json
+    ports: 
+      - "3001:3000"
+    volumes:
+      - "./app:/app"
